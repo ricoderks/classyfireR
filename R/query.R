@@ -13,7 +13,8 @@
 #' submit_query(label = 'query_test', input = input, type = 'STRUCTURE')
 #' }
 submit_query <- function(label, input, type = 'STRUCTURE') {
-  base_url <- 'http://classyfire.wishartlab.com/queries'
+  # base_url <- 'http://classyfire.wishartlab.com/queries'
+  base_url <- 'http://45.88.80.180/queries'
   query_input <-
     paste(names(input), input, sep = '\t', collapse = '\n')
   q <- rjson::toJSON(list(
@@ -158,7 +159,8 @@ get_query <- function(query_id, format = c("json", "sdf", "csv")) {
     match.arg(format,
               choices =  c("json", "sdf", "csv"),
               several.ok = F)
-  base_url <- 'http://classyfire.wishartlab.com/queries/'
+  # base_url <- 'http://classyfire.wishartlab.com/queries/'
+  base_url <- 'http://45.88.80.180/queries'
   url <- paste0(base_url, query_id, ".", format)
   resp <- httr::GET(url = url, httr::accept_json())
   if (resp$status_code == 200) {

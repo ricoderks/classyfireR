@@ -43,7 +43,8 @@ get_classification <- function(inchi_key, conn=NULL)
     message(crayon::green(clisymbols::symbol$tick, 'cached: ', inchi_key))
     return(object)
   } else {
-    entity_url <- 'http://classyfire.wishartlab.com/entities/'
+    # entity_url <- 'http://classyfire.wishartlab.com/entities/'
+    entity_url <- 'http://45.88.80.180/entities/'
 
     entity_query <- paste0(entity_url, inchi_key, '.json')
 
